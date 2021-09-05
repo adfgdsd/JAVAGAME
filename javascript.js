@@ -67,7 +67,7 @@ window.addEventListener("click", (e) => {
         const LocalStroege = () => {
             localStorage.setItem('score', JSON.stringify(x))
         }
-        LocalStroege();
+        // LocalStroege();
         if (hScore.innerHTML < x) {
             getItem();
             LocalStroege();
@@ -78,6 +78,11 @@ window.addEventListener("click", (e) => {
 const getItem = () => {
     const item = JSON.parse(localStorage.getItem('score'));
     hScore.innerHTML = `${item}`;
+    if(hScore.innerHTML=="null"){
+        hScore.innerHTML = `0`;
+    }else{
+        hScore.innerHTML = `${item}`;
+    }
 }
 
 window.addEventListener("load", () => {
