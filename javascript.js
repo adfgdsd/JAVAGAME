@@ -6,6 +6,9 @@ let tRying = document.querySelector("#try");
 let scr = document.querySelector("#src");
 let hScore = document.querySelector(".hScore");
 let nameA = document.querySelector(".name");
+let audio = document.querySelector("#audio")
+let audio2 = document.querySelector("#audio2")
+let audio3 = document.querySelector("#audio3")
 
 let Scr = 0;
 let tryi = 0;
@@ -49,6 +52,8 @@ const fun = () => {
         let left = Math.round(Math.random() * 100);
         let top = Math.round(Math.random() * 100);
 
+        audio3.play();
+
         per.style.left = left + "%";
         per.style.top = top + "vh";
 
@@ -72,6 +77,14 @@ window.addEventListener("click", (e) => {
             getItem();
             LocalStroege();
         }
+    }else{
+        audio2.play();
+        Scr--
+        scr.innerHTML = Scr;
+    }
+    if(Scr<1){
+        Scr=0;
+        scr.innerHTML = Scr;
     }
 })
 
@@ -93,4 +106,5 @@ window.addEventListener("load", () => {
 
 per.addEventListener("click", () => {
     per.style.display = "none";
+    audio.play();
 })
